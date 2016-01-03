@@ -24,7 +24,7 @@ module.exports = {
 
     dbConnection.connect();
 
-    dbConnection.query('INSERT INTO users (username) VALUES ?("' + username + '")', {}, function(err, result) {
+    dbConnection.query('INSERT INTO users (username) VALUES ("' + username + '")', {}, function(err, result) {
       if(err){
         console.log('it broke');
       }else{
@@ -43,7 +43,6 @@ module.exports = {
     });
 
     dbConnection.connect();
-
     dbConnection.query('INSERT INTO messages (text) VALUES ?("' + text + '")', {}, function(err, result) {
       if(err){
         console.log('it broke');

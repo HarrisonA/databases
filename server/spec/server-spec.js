@@ -20,8 +20,8 @@ describe("Persistent Node Chat Server", function() {
 
     /* Empty the db table before each test so that multiple tests
      * (or repeated runs of the tests) won't screw each other up: */
-    dbConnection.query("truncate table messages", done);
-    dbConnection.query("truncate table rooms", done);
+    dbConnection.query("truncate table messages");
+    dbConnection.query("truncate table rooms");
     dbConnection.query("truncate table users", done);
 
   });
@@ -58,6 +58,7 @@ describe("Persistent Node Chat Server", function() {
           expect(results.length).to.equal(1);
 
           // TODO: If you don't have a column named text, change this test.
+          console.log('results',results[0].text);
           expect(results[0].text).to.equal("In mercy's name, three days is all I need.");
 
           done();
